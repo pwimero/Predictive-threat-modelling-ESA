@@ -1,0 +1,111 @@
+{
+  "best_epoch": 8,
+  "best_validation_score": 0.29264381724775096,
+  "records": [
+    {
+      "active_target_fold": 0,
+      "epoch": 1,
+      "training_command_bce": 0.6935976714631796,
+      "training_future_huber": 0.07671645331044416,
+      "training_reconstruction_huber": 0.07668245179183054,
+      "training_total_loss": 0.25278530439441727,
+      "validation_command_auroc": 0.5009323463532704,
+      "validation_command_bce": 0.6932060639252289,
+      "validation_future_huber": 0.1423836992961411,
+      "validation_reconstruction_huber": 0.14248083847832402,
+      "validation_score": 0.31348621885574046
+    },
+    {
+      "active_target_fold": 1,
+      "epoch": 2,
+      "training_command_bce": 0.6932007707538679,
+      "training_future_huber": 0.07047161419371105,
+      "training_reconstruction_huber": 0.07064331408608203,
+      "training_total_loss": 0.24356087518532774,
+      "validation_command_auroc": 0.5050355166129733,
+      "validation_command_bce": 0.6931425479557055,
+      "validation_future_huber": 0.12919226144281945,
+      "validation_reconstruction_huber": 0.12900230172075855,
+      "validation_score": 0.29259132911957364
+    },
+    {
+      "active_target_fold": 2,
+      "epoch": 3,
+      "training_command_bce": 0.6931907293401117,
+      "training_future_huber": 0.06872897651212428,
+      "training_reconstruction_huber": 0.06867961904268684,
+      "training_total_loss": 0.24073437079619167,
+      "validation_command_auroc": 0.4931801896852308,
+      "validation_command_bce": 0.6932137048584265,
+      "validation_future_huber": 0.13032183829424562,
+      "validation_reconstruction_huber": 0.1301351386788612,
+      "validation_score": 0.29666001988893786
+    },
+    {
+      "active_target_fold": 3,
+      "epoch": 4,
+      "training_command_bce": 0.6931799078504738,
+      "training_future_huber": 0.06808335715797689,
+      "training_reconstruction_huber": 0.06795303087323902,
+      "training_total_loss": 0.23966559181881192,
+      "validation_command_auroc": 0.49646738057221523,
+      "validation_command_bce": 0.6931807896445313,
+      "validation_future_huber": 0.12942114313094558,
+      "validation_reconstruction_huber": 0.12854245848736057,
+      "validation_score": 0.2939595539383903
+    },
+    {
+      "active_target_fold": 4,
+      "epoch": 5,
+      "training_command_bce": 0.693158256689289,
+      "training_future_huber": 0.06740296026962948,
+      "training_reconstruction_huber": 0.06724956659169838,
+      "training_total_loss": 0.23863231354685513,
+      "validation_command_auroc": 0.49652309567199465,
+      "validation_command_bce": 0.6931502084975572,
+      "validation_future_huber": 0.1267248040194894,
+      "validation_reconstruction_huber": 0.12657010853214593,
+      "validation_score": 0.29062789140749173
+    },
+    {
+      "active_target_fold": 5,
+      "epoch": 6,
+      "training_command_bce": 0.693158110886928,
+      "training_future_huber": 0.06695424923232726,
+      "training_reconstruction_huber": 0.06684591074751066,
+      "training_total_loss": 0.2380008092472194,
+      "validation_command_auroc": 0.4941548513041565,
+      "validation_command_bce": 0.6931778008467794,
+      "validation_future_huber": 0.1263507027084049,
+      "validation_reconstruction_huber": 0.1269023060377926,
+      "validation_score": 0.29124668713116375
+    },
+    {
+      "active_target_fold": 6,
+      "epoch": 7,
+      "training_command_bce": 0.6931509674454716,
+      "training_future_huber": 0.06667452300390968,
+      "training_reconstruction_huber": 0.06672838215433256,
+      "training_total_loss": 0.23774285120422708,
+      "validation_command_auroc": 0.5025502000101556,
+      "validation_command_bce": 0.6932089391768403,
+      "validation_future_huber": 0.12862996633984045,
+      "validation_reconstruction_huber": 0.12800273173836338,
+      "validation_score": 0.2918076749062525
+    },
+    {
+      "active_target_fold": 7,
+      "epoch": 8,
+      "training_command_bce": 0.6931466286054183,
+      "training_future_huber": 0.06747960493397769,
+      "training_reconstruction_huber": 0.06729220391769977,
+      "training_total_loss": 0.2387129935422613,
+      "validation_command_auroc": 0.5008921468508979,
+      "validation_command_bce": 0.6931462301352811,
+      "validation_future_huber": 0.12872620431370327,
+      "validation_reconstruction_huber": 0.12845914446107887,
+      "validation_score": 0.29264381724775096
+    }
+  ],
+  "schema_version": "mirage-pretraining-history/1.0"
+}

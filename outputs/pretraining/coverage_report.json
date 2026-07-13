@@ -1,0 +1,14 @@
+{
+  "completed_epochs": 8,
+  "coverage_epochs": 8,
+  "coverage_fraction": 1.0,
+  "never_used": 0,
+  "partial_coverage": false,
+  "raw_training_observations": 353471368,
+  "schema_version": "mirage-pretraining-coverage/1.0",
+  "selected_checkpoint_epoch": 8,
+  "target_assignments": 353471368,
+  "target_folds": 8,
+  "used_as_reconstruction_targets": 353471368,
+  "used_more_than_once": 0
+}

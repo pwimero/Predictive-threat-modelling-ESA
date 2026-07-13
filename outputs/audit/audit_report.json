@@ -1,0 +1,32 @@
+{
+  "coverage": {
+    "complete": true,
+    "coverage_fraction": 1.0,
+    "never_used": 0,
+    "partial_coverage": false,
+    "raw_training_observations": 353471368,
+    "target_assignments": 353471368,
+    "used_as_reconstruction_targets": 353471368,
+    "used_more_than_once": 0
+  },
+  "forecasting_coverage": {
+    "blocks": 11351,
+    "context_observations": 294407722,
+    "coverage_fraction": 1.0,
+    "forecast_target_observations": 59063646,
+    "total_observations": 353471368
+  },
+  "passed": true,
+  "protocol_hash": "fea0f02f10aafd2862ac78e4cf1757616b1e23a2483f92765c888c09f67767cc",
+  "scaler_hash": "522da57c5423c2b26b3fa85653b08caf7b274b1b84925e662156d68b9285c121",
+  "schema_version": "mirage-leakage-audit/1.0",
+  "split_fingerprint_hash": "77dd7c1252fa82d0c7a05c75af59b526080ea852f1c7fd39688301265be4a97e",
+  "temporal_overlap": {
+    "max_pretraining_command_timestamp": "2007-10-08T17:41:16.875000",
+    "max_pretraining_context_timestamp": "2007-10-08T21:20:53.501999999",
+    "max_pretraining_target_timestamp": "2007-10-08T21:20:45.291000",
+    "min_calibration_episode_timestamp": "2007-10-08T21:20:53.502000",
+    "passed": true,
+    "protected_start": "2007-10-08T21:20:53.502000"
+  }
+}

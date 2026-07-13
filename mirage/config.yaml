@@ -1,0 +1,51 @@
+seed: 42
+data:
+  archive: ESA-Mission1.zip
+  raw_dir: data/mission1/raw/ESA-Mission1
+  cache_dir: data/mission1/cache
+  ssl_store_dir: data/mission1/ssl_store
+  pre_hours: 6
+  post_hours: 6
+  telecommand_history_hours: 24
+  max_steps: 128
+  max_commands: 64
+split:
+  train_fraction: 0.60
+  calibration_fraction: 0.20
+  min_train_per_class: 3
+  inner_rolling_folds: 3
+normalization:
+  method: robust
+  clip: 10.0
+  epsilon: 1.0e-6
+pretraining:
+  enabled: true
+  block_hours: 6
+  forecast_hours: 1
+  target_folds: 8
+  max_steps: 256
+  max_commands: 128
+  batch_size: 4
+  coverage_epochs: 8
+  extra_epochs: 0
+  channel_embedding_dim: 16
+  time_embedding_dim: 16
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  reconstruction_weight: 1.0
+  forecast_weight: 0.5
+  command_weight: 0.2
+  command_negative_era_days: 30
+  command_count_tolerance: 0.25
+  ssl_validation_fraction: 0.10
+model:
+  hidden_dim: 64
+  command_embedding_dim: 32
+  affected_embedding_dim: 16
+  batch_size: 16
+outputs:
+  root: outputs
+  forecasting: outputs/forecasting
+  pretraining: outputs/pretraining
+  audit: outputs/audit
