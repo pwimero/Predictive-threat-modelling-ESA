@@ -1,4 +1,4 @@
-"""Typed project configuration for MIRAGE-M1."""
+"""Typed, portable project configuration for MIRAGE-M1."""
 
 from __future__ import annotations
 
@@ -7,6 +7,44 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+
+
+DEFAULT_CONFIG_PATH = Path(__file__).with_name("config.yaml")
+
+
+def _nosync_candidates(path: Path) -> tuple[Path, ...]:
+    """Return alternatives created by macOS local-only folders.
+
+    Adding .nosync to a directory is a common way to keep large data out of
+    iCloud Drive. The repository continues to declare portable data paths; this
+    helper only selects the local alternative when the declared path is absent.
+    """
+
+    candidates = [path]
+    parts = path.parts
+    first_name = 1 if path.is_absolute() else 0
+    for index in range(first_name, len(parts)):
+        part = parts[index]
+        if part in {".", ".."} or part.endswith(".nosync"):
+            continue
+        candidates.append(Path(*parts[:index], f"{part}.nosync", *parts[index + 1 :]))
+    return tuple(candidates)
+
+
+def _resolve_local_path(value: str | Path, *, archive: bool = False) -> Path:
+    """Prefer the configured path, with transparent macOS .nosync fallbacks."""
+
+    configured = Path(value)
+    candidates = list(_nosync_candidates(configured))
+    if archive:
+        candidates.extend(
+            (
+                configured.with_name(f"{configured.name}.nosync"),
+                configured.with_name(f"{configured.stem}.nosync{configured.suffix}"),
+                configured.with_name(f"{configured.name}.nosync{configured.suffix}"),
+            )
+        )
+    return next((candidate for candidate in candidates if candidate.exists()), configured)
 
 
 @dataclass(frozen=True)
@@ -20,16 +58,20 @@ class MirageConfig:
     outputs: dict[str, Any]
 
     @property
+    def archive(self) -> Path:
+        return _resolve_local_path(self.data["archive"], archive=True)
+
+    @property
     def raw_dir(self) -> Path:
-        return Path(str(self.data["raw_dir"]))
+        return _resolve_local_path(self.data["raw_dir"])
 
     @property
     def cache_dir(self) -> Path:
-        return Path(str(self.data["cache_dir"]))
+        return _resolve_local_path(self.data["cache_dir"])
 
     @property
     def ssl_store_dir(self) -> Path:
-        return Path(str(self.data["ssl_store_dir"]))
+        return _resolve_local_path(self.data["ssl_store_dir"])
 
     @property
     def output_root(self) -> Path:
@@ -51,7 +93,7 @@ class MirageConfig:
 def load_config(path: str | Path | None = None) -> MirageConfig:
     """Load the checked project configuration."""
 
-    source = Path(path) if path is not None else Path(__file__).with_name("config.yaml")
+    source = DEFAULT_CONFIG_PATH if path is None else Path(path)
     payload = yaml.safe_load(source.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError("config must contain a mapping")

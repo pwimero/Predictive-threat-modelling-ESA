@@ -9,7 +9,7 @@ from typing import Annotated
 import typer
 from rich.console import Console
 
-from mirage.config import MirageConfig, load_config
+from mirage.config import DEFAULT_CONFIG_PATH, MirageConfig, load_config
 from mirage.pipeline import (
     audit_full_data_pipeline,
     build_temporal_protocol,
@@ -43,7 +43,7 @@ def _ensure_ready(config: MirageConfig, *, device: str = "cpu") -> None:
 
 @app.command("run")
 def run_command(
-    config_path: Annotated[Path, typer.Option("--config")] = Path("config.yaml"),
+    config_path: Annotated[Path, typer.Option("--config")] = DEFAULT_CONFIG_PATH,
     device: Annotated[str, typer.Option("--device", help="cpu, mps, or cuda")] = "cpu",
 ) -> None:
     """Run the complete pipeline and write the primary forecasting report."""
@@ -56,7 +56,7 @@ def run_command(
 
 @app.command("forecast")
 def forecast_command(
-    config_path: Annotated[Path, typer.Option("--config")] = Path("config.yaml"),
+    config_path: Annotated[Path, typer.Option("--config")] = DEFAULT_CONFIG_PATH,
 ) -> None:
     """Run forecasting using existing prepared artifacts."""
 
@@ -67,7 +67,7 @@ def forecast_command(
 
 @app.command("audit")
 def audit_command(
-    config_path: Annotated[Path, typer.Option("--config")] = Path("config.yaml"),
+    config_path: Annotated[Path, typer.Option("--config")] = DEFAULT_CONFIG_PATH,
 ) -> None:
     """Verify full observation coverage and temporal isolation."""
 

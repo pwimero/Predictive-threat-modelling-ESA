@@ -42,7 +42,7 @@ from mirage.ssl_store import SSLStore, build_ssl_store
 def build_temporal_protocol(config: MirageConfig) -> TemporalProtocol:
     """Create the immutable time split used by every MIRAGE artifact."""
 
-    extract_mission1_archive(config.data["archive"], config.raw_dir)
+    extract_mission1_archive(config.archive, config.raw_dir)
     source = Mission1Source(config.raw_dir)
     return make_protocol(
         build_event_index(source),

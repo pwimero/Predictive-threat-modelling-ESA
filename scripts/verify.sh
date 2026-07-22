@@ -18,7 +18,8 @@ fi
 
 cd "$ROOT"
 "$PYTHON_BIN" -m compileall -q mirage
-"$PYTHON_BIN" -m mirage --help >/dev/null
+"$PYTHON_BIN" -c "import mirage.cli"
+"$PYTHON_BIN" -m unittest discover -s tests -v
 if [[ $FULL -eq 1 ]]; then
   bash scripts/run_mirage.sh forecast
   bash scripts/run_mirage.sh audit

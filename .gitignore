@@ -1,0 +1,23 @@
+# Local Python environment
+.venv/
+
+# Downloaded and extracted ESA data (not part of the initial repository push)
+data/
+ESA-Mission1.zip
+data.nosync/
+*.nosync.zip
+
+# Python bytecode and test/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# macOS metadata
+.DS_Store
+
+# Local editor and notebook metadata
+.vscode/
+.idea/
+.ipynb_checkpoints/
